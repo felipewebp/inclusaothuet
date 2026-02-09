@@ -1,0 +1,6 @@
+
+body { font-family: Arial, sans-serif; background:#111; color:white; }
+form, #checkout, #confirmacao { max-width: 500px; margin: 40px auto; }
+input, button { display:block; width:100%; margin:10px 0; padding:10px; }
+.upsell-card { border:1px solid #555; padding:10px; margin:10px 0; cursor:pointer; }
+.upsell-card.selected { background:#222; border-color:#0f0; }

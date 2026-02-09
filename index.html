@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programa Federal de Inclusão Offshore – CBSP + THUET</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ========== ESTILOS ========== -->
+<style>
+:root{
+  --azul-petroleo: #0b2b3d;
+  --azul-escuro: #051923;
+  --cinza-metalico: #bfc7cf;
+  --preto: #0a0a0a;
+  --branco: #ffffff;
+  --destaque: #ff6b00;
+  --destaque-hover: #e55d00;
+  --verde-sucesso: #00c853;
+  --amarelo-alerta: #ffd600;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f2f4f6;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, rgba(5, 25, 35, 0.95), rgba(11, 43, 61, 0.92)), 
+              url('https://images.unsplash.com/photo-1565008576549-57569a49371d?auto=format&fit=crop&w=2000&q=80') center/cover;
+  color: white;
+  padding: 120px 20px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 107, 0, 0.15), transparent);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.15; }
+  50% { transform: scale(1.1); opacity: 0.25; }
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3.2rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 1s ease-out 0.3s both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.badge {
+  display: inline-block;
+  background: var(--destaque);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin: 10px 5px;
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+  animation: fadeIn 1s ease-out 0.5s both;
+}
+
+.vagas-selo {
+  margin-top: 25px;
+  display: inline-block;
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+  animation: shake 2s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Logos Faixa */
+.logos-faixa {
+  background: white;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  border-bottom: 3px solid var(--destaque);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.logo-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-box img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(0);
+  transition: transform 0.3s ease;
+}
+
+.logo-box img:hover {
+  transform: scale(1.05);
+}
+
+.logo-box span {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Seção com Background */
+.section {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 50px 30px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+  position: relative;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.section.bg-offshore {
+  background: linear-gradient(135deg, rgba(5, 25, 35, 0.92), rgba(11, 43, 61, 0.88)), 
+              url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=2000&q=80') center/cover;
+  color: white;
+  background-attachment: fixed;
+}
+
+.section.bg-workers {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.93)), 
+              url('https://images.unsplash.com/photo-1565008576549-57569a49371d?auto=format&fit=crop&w=2000&q=80') center/cover;
+  background-attachment: fixed;
+}
+
+.section.bg-platform {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.92)), 
+              url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=2000&q=80') center/cover;
+  background-attachment: fixed;
+}
+
+.section.bg-training {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.95)), 
+              url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2000&q=80') center/cover;
+  background-attachment: fixed;
+}
+
+.section h2 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  color: var(--azul-petroleo);
+  letter-spacing: 1px;
+}
+
+.section.bg-offshore h2 {
+  color: white;
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.card {
+  background: white;
+  border: 2px solid #eee;
+  padding: 25px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-color: var(--destaque);
+}
+
+.card h3 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.8rem;
+  color: var(--azul-petroleo);
+  margin-bottom: 15px;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card ul li {
+  padding: 8px 0;
+  padding-left: 25px;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.card ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--verde-sucesso);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Bônus Section */
+.bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.bonus-card {
+  background: linear-gradient(135deg, #fff, #f8f9fa);
+  border: 2px solid var(--destaque);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bonus-card::before {
+  content: "BÔNUS";
+  position: absolute;
+  top: 10px;
+  right: -30px;
+  background: var(--destaque);
+  color: white;
+  padding: 5px 40px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  transform: rotate(45deg);
+}
+
+.bonus-card h4 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.5rem;
+  color: var(--azul-petroleo);
+  margin-bottom: 10px;
+}
+
+/* Data da Turma */
+.turma-info {
+  background: linear-gradient(135deg, var(--destaque), var(--destaque-hover));
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  margin: 30px 0;
+  box-shadow: 0 8px 25px rgba(255, 107, 0, 0.3);
+}
+
+.turma-info h3 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.data-destaque {
+  font-size: 3rem;
+  font-weight: 800;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Oferta Principal */
+.oferta {
+  background: linear-gradient(135deg, rgba(11, 43, 61, 0.95), rgba(5, 25, 35, 0.98)),
+              url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2000&q=80') center/cover;
+  color: white;
+  text-align: center;
+  padding: 50px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.preco {
+  font-size: 4rem;
+  color: var(--destaque);
+  font-weight: 800;
+  font-family: 'Bebas Neue', cursive;
+  margin: 20px 0;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.preco span {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.vagas-contador {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.vagas-contador span {
+  color: var(--amarelo-alerta);
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+/* Formulário Melhorado */
+form {
+  display: grid;
+  gap: 20px;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: white;
+}
+
+input, select {
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--destaque);
+  box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+button {
+  background: linear-gradient(135deg, var(--destaque), var(--destaque-hover));
+  color: white;
+  border: none;
+  padding: 18px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 107, 0, 0.6);
+}
+
+button:active {
+  transform: translateY(-1px);
+}
+
+/* Modal Checkout */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  padding: 40px;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  animation: slideUp 0.4s ease-out;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 3px solid var(--destaque);
+}
+
+.modal-header h2 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.5rem;
+  color: var(--azul-petroleo);
+  margin-bottom: 10px;
+}
+
+.security-badges {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.security-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #f0f9ff;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0369a1;
+}
+
+.resumo-pedido {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.resumo-pedido h3 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.8rem;
+  color: var(--azul-petroleo);
+  margin-bottom: 20px;
+}
+
+.item-pedido {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.item-pedido:last-child {
+  border-bottom: none;
+}
+
+.item-nome {
+  font-weight: 600;
+}
+
+.item-preco {
+  font-weight: 700;
+  color: var(--destaque);
+}
+
+.total-pedido {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  margin-top: 20px;
+  border-top: 3px solid var(--azul-petroleo);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+/* Upsell Section */
+.upsell-section {
+  margin: 30px 0;
+}
+
+.upsell-section h3 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2rem;
+  color: var(--azul-petroleo);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.upsell-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.upsell-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.upsell-card:hover {
+  border-color: var(--destaque);
+  box-shadow: 0 5px 20px rgba(255, 107, 0, 0.2);
+}
+
+.upsell-card.selected {
+  border-color: var(--destaque);
+  background: #fff5f0;
+  box-shadow: 0 5px 20px rgba(255, 107, 0, 0.3);
+}
+
+.upsell-card input[type="checkbox"] {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.upsell-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--azul-petroleo);
+  margin-bottom: 8px;
+  padding-right: 35px;
+}
+
+.upsell-horas {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.upsell-preco {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--destaque);
+}
+
+.upsell-descricao {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+/* Pagamento Section */
+.pagamento-section {
+  margin-top: 30px;
+}
+
+.opcoes-pagamento {
+  display: grid;
+  gap: 15px;
+}
+
+.btn-pagamento {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+  background: white;
+  border: 3px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-pagamento:hover {
+  border-color: var(--destaque);
+  background: #fff5f0;
+  transform: translateX(5px);
+}
+
+.btn-pagamento.recomendado {
+  border-color: var(--verde-sucesso);
+  background: #f0fdf4;
+  position: relative;
+}
+
+.btn-pagamento.recomendado::after {
+  content: "RECOMENDADO";
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--verde-sucesso);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+/* Confirmação */
+.confirmacao {
+  display: none;
+  text-align: center;
+  padding: 60px 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+.confirmacao-icon {
+  font-size: 5rem;
+  margin-bottom: 20px;
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+.confirmacao h2 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3rem;
+  color: var(--verde-sucesso);
+  margin-bottom: 20px;
+}
+
+.comprovante {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 12px;
+  margin: 30px auto;
+  max-width: 500px;
+  text-align: left;
+  border: 2px dashed #ccc;
+}
+
+.comprovante h3 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.5rem;
+  color: var(--azul-petroleo);
+  margin-bottom: 15px;
+}
+
+.comprovante-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.btn-download {
+  background: var(--azul-petroleo);
+  margin: 10px 5px;
+  padding: 15px 30px;
+  display: inline-block;
+}
+
+/* WhatsApp Float Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 65px;
+  height: 65px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+  cursor: pointer;
+  z-index: 999;
+  transition: all 0.3s ease;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.whatsapp-float svg {
+  width: 35px;
+  height: 35px;
+  fill: white;
+}
+
+/* Credibilidade */
+.selos {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.selo {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border: 2px solid var(--destaque);
+  padding: 20px 30px;
+  border-radius: 12px;
+  font-weight: 700;
+  color: var(--azul-petroleo);
+  box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+}
+
+/* Footer */
+footer {
+  background: var(--azul-escuro);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 60px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .preco {
+    font-size: 2.5rem;
+  }
+  
+  .data-destaque {
+    font-size: 2rem;
+  }
+  
+  .modal-content {
+    padding: 25px;
+  }
+  
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+  }
+  
+  /* Desabilitar parallax em mobile para melhor performance */
+  .section {
+    background-attachment: scroll !important;
+  }
+  
+  .section.bg-offshore,
+  .section.bg-workers,
+  .section.bg-platform,
+  .section.bg-training {
+    background-attachment: scroll !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <h1>PROGRAMA FEDERAL DE INCLUSÃO OFFSHORE – CBSP + THUET</h1>
+  <p>Certificação essencial para embarque em plataformas e transporte por helicóptero.<br>
+  Oferta especial para suprir a crescente demanda do setor.</p>
+
+  <div class="badge">✓ Apoiado por diretrizes do .GOV e Marinha do Brasil</div>
+  <div class="vagas-selo">⚠️ APENAS 30 VAGAS DISPONÍVEIS</div>
+</section>
+
+<!-- ========== FAIXA DE LOGOS ========== -->
+<div class="logos-faixa">
+  <div class="logo-box">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6IiC2ujBg2hNjvwCLUFkqBykKDi7qL7HHRQ&s" alt="Governo Federal">
+    <span>Governo Federal</span>
+  </div>
+  <div class="logo-box">
+    <img src="https://paineldeempregospara.com.br/wp-content/uploads/2024/06/leve_Imagem-site-30.jpg" alt="Marinha do Brasil">
+    <span>Marinha do Brasil</span>
+  </div>
+  <div class="logo-box">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFWlHAB7UFuBhLSgNRnMeOiAywEQE2o75nkg&s" alt="Autoridade Marítima">
+    <span>Normas Brasileiras</span>
+  </div>
+</div>
+
+<p style="text-align:center; margin:20px; font-size:1.1rem; font-weight:600;">
+✓ Curso alinhado às normas brasileiras para embarque offshore e transporte por helicóptero
+</p>
+
+<!-- ========== DATA DA PRÓXIMA TURMA ========== -->
+<section class="section" style="background: transparent;">
+  <div class="turma-info" style="background: linear-gradient(135deg, rgba(255, 107, 0, 0.95), rgba(229, 93, 0, 0.95)), url('https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=2000&q=80') center/cover;">
+    <h3>🗓️ PRÓXIMA TURMA</h3>
+    <div class="data-destaque">23/02/2026</div>
+    <p style="margin-top:15px; font-size:1.1rem;">
+      <strong>Última turma deste ciclo. Próxima sem previsão!</strong><br>
+      As vagas são limitadas e serão preenchidas por ordem de inscrição.
+    </p>
+  </div>
+</section>
+
+<!-- ========== POR QUE AGORA ========== -->
+<section class="section bg-offshore" style="background: linear-gradient(135deg, rgba(5, 25, 35, 0.92), rgba(11, 43, 61, 0.88
+
+<!-- ========== PROGRAMA DE INCLUSÃO ========== -->
+<section class="section bg-platform">
+  <h2>Programa de Inclusão Offshore</h2>
+  <p style="font-size:1.05rem;">
+    Este programa foi criado para capacitar brasileiros e ampliar o acesso ao mercado marítimo e de óleo & gás.
+    É uma porta de entrada para quem nunca trabalhou embarcado – combinando caráter social e profissional,
+    gerando <strong>real mudança de vida</strong>.
+  </p>
+</section>
+
+<!-- ========== O QUE O ALUNO APRENDE ========== -->
+<section class="section bg-training">
+  <h2>O que você aprende</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>🛡️ CBSP</h3>
+      <ul>
+        <li>Segurança pessoal em plataformas</li>
+        <li>Combate a incêndio avançado</li>
+        <li>Primeiros socorros especializados</li>
+        <li>Sobrevivência no mar</li>
+        <li>Procedimentos de emergência</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🚁 THUET</h3>
+      <ul>
+        <li>Escape de helicóptero submerso</li>
+        <li>Uso de equipamentos de respiração</li>
+        <li>Técnicas de autopreservação</li>
+        <li>Procedimentos de resgate</li>
+        <li>Treinamento em piscina certificada</li>
+      </ul>
+    </div>
+  </div>
+  <p style="text-align:center; margin-top:25px; font-size:1.15rem; font-weight:700; color:var(--destaque);">
+    ⚠️ Sem CBSP + THUET você NÃO pode embarcar legalmente em plataformas offshore!
+  </p>
+</section>
+
+<!-- ========== BÔNUS INCLUSOS ========== -->
+<section class="section" style="background: linear-gradient(135deg, rgba(240, 253, 244, 0.98), rgba(220, 252, 231, 0.95)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=2000&q=80') center/cover;">
+  <h2 style="text-align:center; color:var(--verde-sucesso);">🎁 BÔNUS INCLUSOS NO PROGRAMA</h2>
+  <p style="text-align:center; font-size:1.1rem; margin-bottom:30px;">
+    Receba gratuitamente estas certificações adicionais (valor de R$ 2.200,00):
+  </p>
+  <div class="bonus-grid">
+    <div class="bonus-card">
+      <h4>NR-35</h4>
+      <p>Trabalho em Altura</p>
+    </div>
+    <div class="bonus-card">
+      <h4>NR-33</h4>
+      <p>Espaços Confinados</p>
+    </div>
+    <div class="bonus-card">
+      <h4>NR-34</h4>
+      <p>Indústria Naval</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PARA QUEM É ========== -->
+<section class="section bg-workers">
+  <h2>Para quem é o curso</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>✓</h3>
+      <p>Quem quer trabalhar em plataformas offshore</p>
+    </div>
+    <div class="card">
+      <h3>✓</h3>
+      <p>Quem busca vagas no setor de óleo e gás</p>
+    </div>
+    <div class="card">
+      <h3>✓</h3>
+      <p>Quem precisa viajar de helicóptero para trabalho marítimo</p>
+    </div>
+    <div class="card">
+      <h3>✓</h3>
+      <p>Quem quer mudança de vida com salários acima de R$ 8.000</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== OFERTA PRINCIPAL ========== -->
+<section class="section oferta">
+  <h2>OFERTA DO PROGRAMA DE INCLUSÃO</h2>
+  <div class="preco">
+    <span>De R$ 1.900,00 por</span>
+    R$ 899,00
+  </div>
+  <div class="badge" style="margin-top:10px;">💰 ECONOMIA DE R$ 1.001,00</div>
+  <div class="vagas-contador">
+    Vagas restantes: <span id="vagas">30</span>
+  </div>
+
+  <p style="margin-top:25px; font-size:1.1rem;">
+    Vagas preenchidas por ordem de inscrição e pagamento.<br>
+    <strong>⚠️ Última turma deste ciclo. Próxima sem previsão.</strong>
+  </p>
+
+  <!-- FORMULÁRIO -->
+  <form id="formCadastro">
+    <div class="form-group">
+      <label>Nome Completo *</label>
+      <input required placeholder="Digite seu nome completo" name="nome">
+    </div>
+
+    <div class="form-group">
+      <label>CPF *</label>
+      <input required placeholder="000.000.000-00" name="cpf" id="cpf">
+    </div>
+
+    <div class="form-group">
+      <label>E-mail *</label>
+      <input required type="email" placeholder="seu@email.com" name="email">
+    </div>
+
+    <div class="form-group">
+      <label>WhatsApp *</label>
+      <input required placeholder="(00) 00000-0000" name="whatsapp" id="whatsapp">
+    </div>
+
+    <div class="form-group">
+      <label>Cidade / Estado *</label>
+      <input required placeholder="Ex: Rio de Janeiro - RJ" name="cidade">
+    </div>
+
+    <div class="form-group">
+      <label>Data de Nascimento *</label>
+      <input required type="date" name="nascimento">
+    </div>
+
+    <div class="checkbox-group">
+      <input type="checkbox" required id="termos">
+      <label for="termos">Li e concordo com os termos de uso e política de privacidade *</label>
+    </div>
+
+    <button type="submit">🔒 RESERVAR VAGA E PAGAR AGORA</button>
+    
+    <p style="font-size:0.85rem; text-align:center; margin-top:10px;">
+      🔒 Pagamento 100% seguro via Flippei<br>
+      ✓ Seus dados estão protegidos
+    </p>
+  </form>
+</section>
+
+<!-- ========== MODAL CHECKOUT ========== -->
+<div class="modal" id="modalPagamento">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Finalize sua Inscrição</h2>
+      <div class="security-badges">
+        <div class="security-badge">🔒 Pagamento Seguro</div>
+        <div class="security-badge">✓ Dados Protegidos</div>
+        <div class="security-badge">⚡ Confirmação Imediata</div>
+      </div>
+    </div>
+
+    <!-- Resumo do Pedido -->
+    <div class="resumo-pedido">
+      <h3>📋 Resumo do Pedido</h3>
+      <div class="item-pedido">
+        <span class="item-nome">CBSP + THUET (Inclusão Offshore)</span>
+        <span class="item-preco">R$ 899,00</span>
+      </div>
+      <div id="itensUpsell"></div>
+      <div class="total-pedido">
+        <span>TOTAL:</span>
+        <span id="totalPedido">R$ 899,00</span>
+      </div>
+    </div>
+
+    <!-- Upsell Section -->
+    <div class="upsell-section">
+      <h3>🚀 Turbine sua Carreira - Cursos Complementares</h3>
+      <p style="text-align:center; margin-bottom:20px; color:#666;">
+        Adicione cursos complementares e se destaque ainda mais no mercado offshore:
+      </p>
+      
+      <div class="upsell-grid">
+        <div class="upsell-card" onclick="toggleUpsell(this, 1150)">
+          <input type="checkbox" data-preco="1150">
+          <div class="upsell-title">Curso IRATA Nível 1</div>
+          <div class="upsell-horas">⏱️ 40 horas</div>
+          <div class="upsell-preco">R$ 1.150,00</div>
+          <div class="upsell-descricao">Certificação internacional para trabalho em altura com cordas</div>
+        </div>
+
+        <div class="upsell-card" onclick="toggleUpsell(this, 450)">
+          <input type="checkbox" data-preco="450">
+          <div class="upsell-title">Curso Homem de Área</div>
+          <div class="upsell-horas">⏱️ 16 horas</div>
+          <div class="upsell-preco">R$ 450,00</div>
+          <div class="upsell-descricao">Qualificação para operações auxiliares em plataformas</div>
+        </div>
+
+        <div class="upsell-card" onclick="toggleUpsell(this, 450)">
+          <input type="checkbox" data-preco="450">
+          <div class="upsell-title">Curso Taifeiro</div>
+          <div class="upsell-horas">⏱️ 24 horas</div>
+          <div class="upsell-preco">R$ 450,00</div>
+          <div class="upsell-descricao">Serviços gerais e manutenção em embarcações</div>
+        </div>
+
+        <div class="upsell-card" onclick="toggleUpsell(this, 650)">
+          <input type="checkbox" data-preco="650">
+          <div class="upsell-title">Curso Hidrojatista</div>
+          <div class="upsell-horas">⏱️ 32 horas</div>
+          <div class="upsell-preco">R$ 650,00</div>
+          <div class="upsell-descricao">Operação de equipamentos de limpeza de alta pressão</div>
+        </div>
+
+        <div class="upsell-card" onclick="toggleUpsell(this, 1150)">
+          <input type="checkbox" data-preco="1150">
+          <div class="upsell-title">Curso Pintura Industrial</div>
+          <div class="upsell-horas">⏱️ 40 horas</div>
+          <div class="upsell-preco">R$ 1.150,00</div>
+          <div class="upsell-descricao">Técnicas de pintura e revestimento para estruturas offshore</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Opções de Pagamento -->
+    <div class="pagamento-section">
+      <h3 style="text-align:center; margin-bottom:20px; font-family:'Bebas Neue', cursive; font-size:2rem; color:var(--azul-petroleo);">
+        Escolha a forma de pagamento
+      </h3>
+      
+      <div class="opcoes-pagamento">
+        <button class="btn-pagamento recomendado" onclick="pagarPix()">
+          <svg width="30" height="30" viewBox="0 0 512 512" fill="none">
+            <path d="M242.4 292.5C247.8 287.1 247.8 278.2 242.4 272.8L151.5 181.9C146.1 176.5 137.2 176.5 131.8 181.9L56.58 257.2C54.67 259.1 53.52 261.6 53.52 264.4C53.52 267.2 54.67 269.7 56.58 271.6L131.8 346.8C137.2 352.2 146.1 352.2 151.5 346.8L242.4 255.9C247.8 250.5 247.8 241.6 242.4 236.2L131.8 125.6C126.4 120.2 117.5 120.2 112.1 125.6L24.69 213C18.02 219.7 18.02 230.2 24.69 236.9L112.1 324.3C117.5 329.7 126.4 329.7 131.8 324.3L242.4 292.5Z" fill="#32BCAD"/>
+            <path d="M451.4 213L363.1 125.6C357.7 120.2 348.8 120.2 343.4 125.6L232.8 236.2C227.4 241.6 227.4 250.5 232.8 255.9L343.4 366.5C348.8 371.9 357.7 371.9 363.1 366.5L451.4 279.2C458.1 272.5 458.1 262 451.4 255.3L363.1 167.9C357.7 162.5 348.8 162.5 343.4 167.9L232.8 278.5C227.4 283.9 227.4 292.8 232.8 298.2L343.4 408.8C348.8 414.2 357.7 414.2 363.1 408.8L451.4 321.4C458.1 314.7 458.1 304.2 451.4 297.5L363.1 210.1C357.7 204.7 348.8 204.7 343.4 210.1L232.8 320.7C227.4 326.1 227.4 335 232.8 340.4L343.4 451C348.8 456.4 357.7 456.4 363.1 451L451.4 363.6C458.1 356.9 458.1 346.4 451.4 339.7L363.1 252.3C357.7 246.9 348.8 246.9 343.4 252.3L242.4 272.8Z" fill="#00A88E"/>
+          </svg>
+          PIX - Aprovação Imediata
+        </button>
+
+        <button class="btn-pagamento" onclick="pagarCartao()">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="5" width="20" height="14" rx="2" stroke="#0b2b3d" stroke-width="2"/>
+            <path d="M2 9H22" stroke="#0b2b3d" stroke-width="2"/>
+            <path d="M6 13H10" stroke="#0b2b3d" stroke-width="2" stroke-linecap="round"/>
+            <path d="M14 13H18" stroke="#0b2b3d" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Cartão de Crédito - Parcelamento
+        </button>
+
+        <button class="btn-pagamento" onclick="pagarBoleto()">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="6" width="18" height="12" stroke="#0b2b3d" stroke-width="2"/>
+            <path d="M5 9H19" stroke="#0b2b3d" stroke-width="2"/>
+            <path d="M7 12V15" stroke="#0b2b3d" stroke-width="2"/>
+            <path d="M9 12V15" stroke="#0b2b3d" stroke-width="2"/>
+            <path d="M11 12V15" stroke="#0b2b3d" stroke-width="2"/>
+            <path d="M13 12V15" stroke="#0b2b3d" stroke-width="2"/>
+            <path d="M15 12V15" stroke="#0b2b3d" stroke-width="2"/>
+            <path d="M17 12V15" stroke="#0b2b3d" stroke-width="2"/>
+          </svg>
+          Boleto Bancário - Vence em 3 dias
+        </button>
+      </div>
+    </div>
+
+    <button onclick="fecharModal()" style="background:#999; margin-top:20px;">Cancelar</button>
+  </div>
+</div>
+
+<!-- ========== CONFIRMAÇÃO ========== -->
+<div class="modal" id="modalConfirmacao" style="display:none;">
+  <div class="modal-content confirmacao">
+    <div class="confirmacao-icon">🎉</div>
+    <h2>Inscrição Confirmada!</h2>
+    <p style="font-size:1.2rem; margin:20px 0;">
+      Parabéns, <strong id="nomeAluno"></strong>!<br>
+      Sua vaga na turma de <strong>23/02/2026</strong> foi garantida.
+    </p>
+
+    <div class="comprovante">
+      <h3>📄 Comprovante de Inscrição</h3>
+      <div class="comprovante-item">
+        <span>Nome:</span>
+        <span id="compNome"></span>
+      </div>
+      <div class="comprovante-item">
+        <span>CPF:</span>
+        <span id="compCpf"></span>
+      </div>
+      <div class="comprovante-item">
+        <span>Curso:</span>
+        <span>CBSP + THUET</span>
+      </div>
+      <div class="comprovante-item">
+        <span>Turma:</span>
+        <span>23/02/2026</span>
+      </div>
+      <div class="comprovante-item">
+        <span>Valor Pago:</span>
+        <span id="compValor"></span>
+      </div>
+      <div class="comprovante-item">
+        <span>Protocolo:</span>
+        <span id="compProtocolo"></span>
+      </div>
+    </div>
+
+    <div style="margin:30px 0;">
+      <button class="btn-download" onclick="baixarComprovante('inscricao')">
+        📥 Baixar Comprovante de Inscrição
+      </button>
+      <button class="btn-download" onclick="baixarComprovante('pagamento')">
+        📥 Baixar Comprovante de Pagamento
+      </button>
+    </div>
+
+    <div style="background:#fff3cd; padding:20px; border-radius:10px; margin-top:20px;">
+      <strong>⚠️ IMPORTANTE:</strong>
+      <ul style="text-align:left; margin-top:10px;">
+        <li>Salve seus comprovantes em local seguro</li>
+        <li>Você receberá um e-mail com mais detalhes do curso</li>
+        <li>Entraremos em contato via WhatsApp em até 24 horas</li>
+        <li>Dúvidas? Clique no botão do WhatsApp no canto da tela</li>
+      </ul>
+    </div>
+
+    <button onclick="fecharConfirmacao()" style="margin-top:30px; background:var(--verde-sucesso);">
+      ✓ Entendi, obrigado!
+    </button>
+  </div>
+</div>
+
+<!-- ========== CREDIBILIDADE ========== -->
+<section class="section bg-workers">
+  <h2 style="text-align:center;">Credibilidade e Qualidade</h2>
+  <div class="selos">
+    <div class="selo">✓ Curso Certificado</div>
+    <div class="selo">✓ Treinamento Prático</div>
+    <div class="selo">✓ Instrutores Qualificados</div>
+    <div class="selo">✓ Reconhecido no Mercado</div>
+  </div>
+</section>
+
+<!-- ========== CTA FINAL ========== -->
+<section class="section" style="text-align:center; background:linear-gradient(135deg, #ff6b00, #e55d00); color:white;">
+  <h2 style="color:white;">Não perca o maior ciclo de oportunidades offshore dos próximos meses</h2>
+  <p style="font-size:1.2rem; margin:20px 0;">
+    Garanta sua vaga agora e dê o primeiro passo para uma carreira offshore de sucesso!
+  </p>
+  <button onclick="scrollToForm()" style="background:white; color:var(--destaque); font-size:1.3rem;">
+    🚀 QUERO GARANTIR MINHA VAGA
+  </button>
+</section>
+
+<footer>
+  <p style="margin-bottom:10px;">
+    © 2026 Programa de Inclusão Offshore – Todos os direitos reservados
+  </p>
+  <p style="font-size:0.9rem; color:#999;">
+    CNPJ: 00.000.000/0001-00 | Endereço: Rio de Janeiro - RJ
+  </p>
+</footer>
+
+<!-- ========== WHATSAPP FLUTUANTE ========== -->
+<a href="https://wa.me/5521999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Programa%20de%20Inclusão%20Offshore" target="_blank" class="whatsapp-float">
+  <svg viewBox="0 0 32 32">
+    <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.924 0-7.435 6.049-13.483 13.483-13.483s13.483 6.049 13.483 13.483c0 7.435-6.049 13.483-13.483 13.483zM21.484 18.198c-0.279-0.145-1.649-0.814-1.904-0.908-0.256-0.093-0.442-0.145-0.628 0.145s-0.721 0.908-0.884 1.093c-0.163 0.186-0.326 0.21-0.605 0.064s-1.18-0.436-2.246-1.39c-0.831-0.744-1.392-1.663-1.555-1.942s-0.017-0.446 0.127-0.591c0.131-0.131 0.291-0.347 0.436-0.521s0.198-0.297 0.291-0.496c0.093-0.198 0.047-0.372-0.023-0.521s-0.628-1.514-0.861-2.072c-0.226-0.544-0.456-0.47-0.628-0.479-0.163-0.008-0.349-0.010-0.535-0.010s-0.488 0.070-0.744 0.349c-0.256 0.279-0.977 0.955-0.977 2.328s1.001 2.701 1.14 2.886c0.139 0.186 1.951 2.979 4.729 4.179 0.661 0.285 1.177 0.456 1.58 0.583 0.664 0.212 1.268 0.182 1.745 0.11 0.532-0.079 1.649-0.674 1.881-1.324s0.233-1.209 0.163-1.324c-0.070-0.116-0.256-0.186-0.535-0.326z"/>
+  </svg>
+</a>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+// Dados do formulário
+let dadosFormulario = {};
+let valorBase = 899;
+let valorTotal = valorBase;
+let cursosAdicionais = [];
+
+// Contador de vagas
+let vagas = 30;
+const spanVagas = document.getElementById("vagas");
+
+// Função para limpar e resetar o modal
+function resetarModal() {
+  valorTotal = valorBase;
+  cursosAdicionais = [];
+  
+  // Desmarcar e limpar todos os cards de upsell
+  document.querySelectorAll('.upsell-card').forEach(card => {
+    card.classList.remove('selected');
+    const checkbox = card.querySelector('input[type="checkbox"]');
+    if (checkbox) {
+      checkbox.checked = false;
+    }
+  });
+  
+  atualizarResumo();
+}
+
+// Máscaras de input
+document.getElementById("cpf").addEventListener("input", function(e) {
+  let value = e.target.value.replace(/\D/g, "");
+  if (value.length <= 11) {
+    value = value.replace(/(\d{3})(\d)/, "$1.$2");
+    value = value.replace(/(\d{3})(\d)/, "$1.$2");
+    value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+  }
+  e.target.value = value;
+});
+
+document.getElementById("whatsapp").addEventListener("input", function(e) {
+  let value = e.target.value.replace(/\D/g, "");
+  if (value.length <= 11) {
+    value = value.replace(/(\d{2})(\d)/, "($1) $2");
+    value = value.replace(/(\d{5})(\d)/, "$1-$2");
+  }
+  e.target.value = value;
+});
+
+// Scroll para formulário
+function scrollToForm() {
+  document.getElementById("formCadastro").scrollIntoView({behavior:"smooth"});
+}
+
+// Envio do formulário
+document.getElementById("formCadastro").addEventListener("submit", function(e) {
+  e.preventDefault();
+  
+  // Salvar dados
+  dadosFormulario = {
+    nome: e.target.nome.value,
+    cpf: e.target.cpf.value,
+    email: e.target.email.value,
+    whatsapp: e.target.whatsapp.value,
+    cidade: e.target.cidade.value,
+    nascimento: e.target.nascimento.value
+  };
+  
+  // Abrir modal de pagamento
+  document.getElementById("modalPagamento").style.display = "flex";
+  
+  // Resetar modal após pequeno delay para garantir que está visível
+  setTimeout(resetarModal, 100);
+});
+
+// Toggle Upsell - VERSÃO SIMPLIFICADA
+function toggleUpsell(card, preco) {
+  const checkbox = card.querySelector('input[type="checkbox"]');
+  
+  // Toggle do checkbox
+  checkbox.checked = !checkbox.checked;
+  
+  if (checkbox.checked) {
+    card.classList.add('selected');
+    valorTotal += preco;
+    cursosAdicionais.push({
+      nome: card.querySelector('.upsell-title').textContent,
+      preco: preco
+    });
+  } else {
+    card.classList.remove('selected');
+    valorTotal -= preco;
+    cursosAdicionais = cursosAdicionais.filter(c => c.nome !== card.querySelector('.upsell-title').textContent);
+  }
+  
+  atualizarResumo();
+}
+
+// Atualizar resumo do pedido
+function atualizarResumo() {
+  const itensDiv = document.getElementById("itensUpsell");
+  itensDiv.innerHTML = "";
+  
+  // Adicionar cursos adicionais
+  cursosAdicionais.forEach(curso => {
+    itensDiv.innerHTML += `
+      <div class="item-pedido">
+        <span class="item-nome">${curso.nome}</span>
+        <span class="item-preco">R$ ${curso.preco.toFixed(2).replace('.', ',')}</span>
+      </div>
+    `;
+  });
+  
+  // Atualizar total com formatação correta
+  const totalFormatado = valorTotal.toFixed(2).replace('.', ',');
+  document.getElementById("totalPedido").textContent = `R$ ${totalFormatado}`;
+  
+  // Debug
+  console.log('Valor Base:', valorBase);
+  console.log('Cursos Adicionais:', cursosAdicionais);
+  console.log('Valor Total:', valorTotal);
+}
+
+// Fechar modal
+function fecharModal() {
+  document.getElementById("modalPagamento").style.display = "none";
+}
+
+// Fechar confirmação
+function fecharConfirmacao() {
+  document.getElementById("modalConfirmacao").style.display = "none";
+  location.reload();
+}
+
+// ===================
+// INTEGRAÇÃO FLIPPEI
+// ===================
+
+// Suas credenciais Flippei
+const FLIPPEI_API_KEY = "htus_icWoaSBySEnXynF4KQkF22Janh7BtTji";
+const FLIPPEI_API_URL = "https://api.flippei.com/api/v1"; // Verificar URL correta na documentação
+
+// Função PIX
+async function pagarPix() {
+  fecharModal();
+  
+  // Criar overlay de loading
+  const loading = document.createElement('div');
+  loading.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:9999;';
+  loading.innerHTML = '<div style="background:white;padding:40px;border-radius:15px;text-align:center;"><h3>Processando pagamento PIX...</h3><p>Aguarde um momento</p></div>';
+  document.body.appendChild(loading);
+  
+  try {
+    // AQUI VOCÊ INTEGRARIA COM A API DA FLIPPEI
+    // Exemplo de chamada (ajustar conforme documentação):
+    /*
+    const response = await fetch(`${FLIPPEI_API_URL}/payments/pix`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${FLIPPEI_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        amount: valorTotal,
+        customer: {
+          name: dadosFormulario.nome,
+          email: dadosFormulario.email,
+          cpf: dadosFormulario.cpf,
+          phone: dadosFormulario.whatsapp
+        },
+        items: [
+          { name: 'CBSP + THUET', price: valorBase },
+          ...cursosAdicionais
+        ]
+      })
+    });
+    
+    const data = await response.json();
+    */
+    
+    // SIMULAÇÃO
+    console.log("Pagamento PIX iniciado");
+    console.log("Dados:", dadosFormulario);
+    console.log("Valor total:", valorTotal);
+    
+    setTimeout(() => {
+      document.body.removeChild(loading);
+      vagas--;
+      spanVagas.textContent = vagas;
+      mostrarConfirmacao();
+    }, 2000);
+    
+  } catch (error) {
+    document.body.removeChild(loading);
+    alert("Erro ao processar pagamento. Tente novamente.");
+    console.error(error);
+  }
+}
+
+// Função Cartão
+async function pagarCartao() {
+  fecharModal();
+  
+  const loading = document.createElement('div');
+  loading.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:9999;';
+  loading.innerHTML = '<div style="background:white;padding:40px;border-radius:15px;text-align:center;"><h3>Processando pagamento no Cartão...</h3><p>Aguarde um momento</p></div>';
+  document.body.appendChild(loading);
+  
+  try {
+    // INTEGRAÇÃO FLIPPEI CARTÃO
+    console.log("Pagamento Cartão iniciado");
+    
+    setTimeout(() => {
+      document.body.removeChild(loading);
+      vagas--;
+      spanVagas.textContent = vagas;
+      mostrarConfirmacao();
+    }, 2500);
+    
+  } catch (error) {
+    document.body.removeChild(loading);
+    alert("Erro ao processar pagamento. Tente novamente.");
+    console.error(error);
+  }
+}
+
+// Função Boleto
+async function pagarBoleto() {
+  fecharModal();
+  
+  const loading = document.createElement('div');
+  loading.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:9999;';
+  loading.innerHTML = '<div style="background:white;padding:40px;border-radius:15px;text-align:center;"><h3>Gerando Boleto...</h3><p>Aguarde um momento</p></div>';
+  document.body.appendChild(loading);
+  
+  try {
+    // INTEGRAÇÃO FLIPPEI BOLETO
+    console.log("Boleto gerado");
+    
+    setTimeout(() => {
+      document.body.removeChild(loading);
+      vagas--;
+      spanVagas.textContent = vagas;
+      mostrarConfirmacao();
+    }, 2000);
+    
+  } catch (error) {
+    document.body.removeChild(loading);
+    alert("Erro ao gerar boleto. Tente novamente.");
+    console.error(error);
+  }
+}
+
+// Mostrar confirmação
+function mostrarConfirmacao() {
+  const protocolo = 'CBSP' + Math.random().toString(36).substr(2, 9).toUpperCase();
+  
+  document.getElementById("nomeAluno").textContent = dadosFormulario.nome;
+  document.getElementById("compNome").textContent = dadosFormulario.nome;
+  document.getElementById("compCpf").textContent = dadosFormulario.cpf;
+  document.getElementById("compValor").textContent = `R$ ${valorTotal.toFixed(2).replace('.', ',')}`;
+  document.getElementById("compProtocolo").textContent = protocolo;
+  
+  document.getElementById("modalConfirmacao").style.display = "flex";
+}
+
+// Baixar comprovantes
+function baixarComprovante(tipo) {
+  const protocolo = document.getElementById("compProtocolo").textContent;
+  const data = new Date().toLocaleDateString('pt-BR');
+  
+  let conteudo = `
+═══════════════════════════════════════════════
+PROGRAMA FEDERAL DE INCLUSÃO OFFSHORE
+COMPROVANTE DE ${tipo.toUpperCase()}
+═══════════════════════════════════════════════
+
+Data: ${data}
+Protocolo: ${protocolo}
+
+DADOS DO ALUNO:
+Nome: ${dadosFormulario.nome}
+CPF: ${dadosFormulario.cpf}
+E-mail: ${dadosFormulario.email}
+WhatsApp: ${dadosFormulario.whatsapp}
+
+CURSO CONTRATADO:
+- CBSP + THUET (Inclusão Offshore)
+- Data da Turma: 23/02/2026
+${cursosAdicionais.map(c => `- ${c.nome}`).join('\n')}
+
+VALOR PAGO: R$ ${valorTotal.toFixed(2).replace('.', ',')}
+
+BÔNUS INCLUSOS:
+- NR-35 (Trabalho em Altura)
+- NR-33 (Espaços Confinados)
+- NR-34 (Indústria Naval)
+
+═══════════════════════════════════════════════
+Este documento comprova sua inscrição no Programa
+Federal de Inclusão Offshore. Guarde-o com segurança.
+
+Dúvidas: WhatsApp (21) 99999-9999
+E-mail: contato@inclusaooffshore.com.br
+═══════════════════════════════════════════════
+  `;
+  
+  const blob = new Blob([conteudo], { type: 'text/plain' });
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `comprovante_${tipo}_${protocolo}.txt`;
+  a.click();
+  window.URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>
